@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             Background="#10161B">
+    <Grid>
+        <BoxView Background="#10161B" />
+        <BoxView HeightRequest="4"
+                 Background="#F4B942"
+                 VerticalOptions="Start"
+                 Margin="0,8,0,0" />
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20,24" Spacing="18">
+                <Grid ColumnDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="2">
+                        <Label Text="TURBO PENDU"
+                               TextColor="#F4B942"
+                               FontSize="26"
+                               FontAttributes="Bold"
+                               CharacterSpacing="2"
+                               FontFamily="OpenSansSemibold" />
+                        <Label Text="DÉFI AUTOMOBILE  •  CIRCUIT 01"
+                               TextColor="#BBC5CC"
+                               FontSize="12"
+                               CharacterSpacing="1.5" />
+                    </VerticalStackLayout>
+                    <Border Grid.Column="1"
+                            Background="#202930"
+                            Stroke="#3B4851"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 12"
+                            Padding="10">
+                        <Label Text="🏁" FontSize="28" VerticalOptions="Center" />
+                    </Border>
+                </Grid>
+
+                <Border Background="#1B242B"
+                        Stroke="#36434C"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 18"
+                        Padding="16">
+                    <VerticalStackLayout Spacing="14">
+                        <Label Text="Trouve le mot mystère en 5 lettres"
+                               TextColor="#EAF0F3"
+                               FontSize="17"
+                               FontAttributes="Bold"
+                               HorizontalTextAlignment="Center" />
+
+                        <Grid ColumnDefinitions="*,*,*,*,*" ColumnSpacing="8">
+                            <Border Grid.Column="0" Background="#11181D" Stroke="#65727B" StrokeThickness="1" StrokeShape="RoundRectangle 8" HeightRequest="52">
+                                <Label x:Name="Letter1" Text="_" TextColor="#F4B942" FontSize="27" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <Border Grid.Column="1" Background="#11181D" Stroke="#65727B" StrokeThickness="1" StrokeShape="RoundRectangle 8" HeightRequest="52">
+                                <Label x:Name="Letter2" Text="_" TextColor="#F4B942" FontSize="27" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <Border Grid.Column="2" Background="#11181D" Stroke="#65727B" StrokeThickness="1" StrokeShape="RoundRectangle 8" HeightRequest="52">
+                                <Label x:Name="Letter3" Text="_" TextColor="#F4B942" FontSize="27" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <Border Grid.Column="3" Background="#11181D" Stroke="#65727B" StrokeThickness="1" StrokeShape="RoundRectangle 8" HeightRequest="52">
+                                <Label x:Name="Letter4" Text="_" TextColor="#F4B942" FontSize="27" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                            <Border Grid.Column="4" Background="#11181D" Stroke="#65727B" StrokeThickness="1" StrokeShape="RoundRectangle 8" HeightRequest="52">
+                                <Label x:Name="Letter5" Text="_" TextColor="#F4B942" FontSize="27" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </Border>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="0.85*,1.15*" ColumnSpacing="8" HeightRequest="220">
+                            <Grid Grid.Column="0" Margin="4">
+                                <Image Source="hangman_gallows.png" Aspect="AspectFit" />
+                                <Image x:Name="HangmanHead" Source="hangman_head.png" Aspect="AspectFit" IsVisible="False" />
+                                <Image x:Name="HangmanBody" Source="hangman_body.png" Aspect="AspectFit" IsVisible="False" />
+                                <Image x:Name="HangmanLeftArm" Source="hangman_left_arm.png" Aspect="AspectFit" IsVisible="False" />
+                                <Image x:Name="HangmanRightArm" Source="hangman_right_arm.png" Aspect="AspectFit" IsVisible="False" />
+                                <Image x:Name="HangmanLegs" Source="hangman_legs.png" Aspect="AspectFit" IsVisible="False" />
+                            </Grid>
+
+                            <Grid x:Name="KeypadPanel"
+                                  Grid.Column="1"
+                                  RowDefinitions="*,*,*,*,*"
+                                  ColumnDefinitions="*,*,*,*,*,*">
+                                <Button Grid.Row="0" Grid.Column="0" Text="A" Clicked="Button_Clicked" />
+                                <Button Grid.Row="0" Grid.Column="1" Text="B" Clicked="Button_Clicked" />
+                                <Button Grid.Row="0" Grid.Column="2" Text="C" Clicked="Button_Clicked" />
+                                <Button Grid.Row="0" Grid.Column="3" Text="D" Clicked="Button_Clicked" />
+                                <Button Grid.Row="0" Grid.Column="4" Text="E" Clicked="Button_Clicked" />
+                                <Button Grid.Row="0" Grid.Column="5" Text="F" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="0" Text="G" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="1" Text="H" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="2" Text="I" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="3" Text="J" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="4" Text="K" Clicked="Button_Clicked" />
+                                <Button Grid.Row="1" Grid.Column="5" Text="L" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="0" Text="M" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="1" Text="N" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="2" Text="O" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="3" Text="P" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="4" Text="Q" Clicked="Button_Clicked" />
+                                <Button Grid.Row="2" Grid.Column="5" Text="R" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="0" Text="S" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="1" Text="T" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="2" Text="U" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="3" Text="V" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="4" Text="W" Clicked="Button_Clicked" />
+                                <Button Grid.Row="3" Grid.Column="5" Text="X" Clicked="Button_Clicked" />
+                                <Button Grid.Row="4" Grid.Column="2" Text="Y" Clicked="Button_Clicked" />
+                                <Button Grid.Row="4" Grid.Column="3" Text="Z" Clicked="Button_Clicked" />
+
+                                <Grid.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Margin" Value="2" />
+                                        <Setter Property="Padding" Value="0" />
+                                        <Setter Property="Background" Value="#C83D3D" />
+                                        <Setter Property="TextColor" Value="White" />
+                                        <Setter Property="FontSize" Value="14" />
+                                        <Setter Property="FontAttributes" Value="Bold" />
+                                        <Setter Property="CornerRadius" Value="7" />
+                                    </Style>
+                                </Grid.Resources>
+                            </Grid>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,Auto" VerticalOptions="Center">
+                            <Label Text="PNEUS RESTANTS"
+                                   TextColor="#BBC5CC"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   CharacterSpacing="1.2"
+                                   VerticalTextAlignment="Center" />
+                            <Label x:Name="LifeStatus"
+                                   Grid.Column="1"
+                                   AutomationId="LifeStatus"
+                                   Text="5 / 5"
+                                   TextColor="#F4B942"
+                                   FontSize="14"
+                                   FontAttributes="Bold"
+                                   VerticalTextAlignment="Center" />
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*,*,*,*,*" HorizontalOptions="Center" ColumnSpacing="12">
+                            <Grid Grid.Column="0" WidthRequest="42" HeightRequest="42">
+                                <Label x:Name="Tire1" Text="🛞" FontSize="29" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireFire1" Text="🔥" FontSize="22" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireSmoke1" Text="💨" FontSize="17" IsVisible="False" HorizontalTextAlignment="Center" VerticalOptions="Start" />
+                            </Grid>
+                            <Grid Grid.Column="1" WidthRequest="42" HeightRequest="42">
+                                <Label x:Name="Tire2" Text="🛞" FontSize="29" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireFire2" Text="🔥" FontSize="22" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireSmoke2" Text="💨" FontSize="17" IsVisible="False" HorizontalTextAlignment="Center" VerticalOptions="Start" />
+                            </Grid>
+                            <Grid Grid.Column="2" WidthRequest="42" HeightRequest="42">
+                                <Label x:Name="Tire3" Text="🛞" FontSize="29" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireFire3" Text="🔥" FontSize="22" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireSmoke3" Text="💨" FontSize="17" IsVisible="False" HorizontalTextAlignment="Center" VerticalOptions="Start" />
+                            </Grid>
+                            <Grid Grid.Column="3" WidthRequest="42" HeightRequest="42">
+                                <Label x:Name="Tire4" Text="🛞" FontSize="29" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireFire4" Text="🔥" FontSize="22" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireSmoke4" Text="💨" FontSize="17" IsVisible="False" HorizontalTextAlignment="Center" VerticalOptions="Start" />
+                            </Grid>
+                            <Grid Grid.Column="4" WidthRequest="42" HeightRequest="42">
+                                <Label x:Name="Tire5" Text="🛞" FontSize="29" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireFire5" Text="🔥" FontSize="22" IsVisible="False" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                                <Label x:Name="TireSmoke5" Text="💨" FontSize="17" IsVisible="False" HorizontalTextAlignment="Center" VerticalOptions="Start" />
+                            </Grid>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Label Text="GARAGE • DEVINE LE MOT, SAUVE TES PNEUS"
+                       TextColor="#7F8C95"
+                       FontSize="11"
+                       CharacterSpacing="1"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <Grid x:Name="GameOverOverlay"
+              AutomationId="GameOverOverlay"
+              IsVisible="False"
+              Background="#D910161B"
+              Padding="28">
+            <Border x:Name="GameOverCard"
+                    Background="#202930"
+                    Stroke="#C83D3D"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="24"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <VerticalStackLayout Spacing="14" HorizontalOptions="Center">
+                    <Label Text="💨"
+                           FontSize="48"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="COURSE TERMINÉE"
+                           TextColor="#FF7770"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Tes pneus ont tout donné. On repart ?"
+                           TextColor="#EAF0F3"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center" />
+                    <Button Text="RETOUR AU CIRCUIT"
+                            Clicked="ReplayButton_Clicked"
+                            Background="#C83D3D"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            Padding="18,12" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+        <Grid x:Name="WinOverlay"
+              AutomationId="WinOverlay"
+              IsVisible="False"
+              Background="#D910161B"
+              Padding="28">
+            <Border x:Name="WinCard"
+                    Background="#202930"
+                    Stroke="#F4B942"
+                    StrokeThickness="2"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="24"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <VerticalStackLayout Spacing="14" HorizontalOptions="Center">
+                    <Label Text="🏆"
+                           FontSize="48"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="POLE POSITION !"
+                           TextColor="#F4B942"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="Bien joué, tu as trouvé le mot !"
+                           TextColor="#EAF0F3"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center" />
+                    <Button Text="NOUVEAU DÉFI"
+                            Clicked="NextWordButton_Clicked"
+                            Background="#C83D3D"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="10"
+                            Padding="18,12" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+    </Grid>
+</ContentPage>
