@@ -1,0 +1,6 @@
+//* Mes élèves de l'aide au devoirs le 18/11/2026
+
+E.T: Quand on perd, la lettre a trouver s'affiche pour que le joueur puisse savoir quel est le mot à trouver
+M.A: Écran d'accueil avec chargement. Ajout de son en arrière plan. Ajout de menus: Pièces de voitures, niveaux, marques etc. 
+E.T: Bon jeu. 
+M.D: Pas que le bonhomme du pendu. Aussi la barre puis ensuite le perosnnage automobile ET moto, timer. Faire un système de départ de course 3, 2, 1 GO!
