@@ -33,11 +33,19 @@ public partial class MainPage : ContentPage
 
     private async void Button_Clicked(object? sender, EventArgs e)
     {
+        if (sender is not Button button)
+            throw new InvalidOperationException("The guess event must come from a button.");
+
+        await GuessLetterAsync(button);
+    }
+
+    private async Task GuessLetterAsync(Button button)
+    {
         if (gameOver || isProcessingGuess)
             return;
 
-        if (sender is not Button button)
-            throw new InvalidOperationException("The guess event must come from a button.");
+        if (!button.IsEnabled)
+            return;
 
         isProcessingGuess = true;
         try
@@ -98,7 +106,37 @@ public partial class MainPage : ContentPage
         finally
         {
             isProcessingGuess = false;
+            KeyboardInput.Focus();
         }
+    }
+
+    private void KeyboardInput_Loaded(object? sender, EventArgs e)
+    {
+        if (sender is Entry entry)
+            entry.Focus();
+    }
+
+    private async void KeyboardInput_TextChanged(object? sender, TextChangedEventArgs e)
+    {
+        if (sender is not Entry entry)
+            return;
+
+        string text = entry.Text?.Trim().ToUpperInvariant() ?? string.Empty;
+        entry.Text = string.Empty;
+
+        if (text.Length == 0)
+            return;
+
+        char letter = text[^1];
+        if (letter is < 'A' or > 'Z')
+            return;
+
+        Button? button = KeypadPanel.Children
+            .OfType<Button>()
+            .FirstOrDefault(candidate => candidate.Text == letter.ToString());
+
+        if (button is not null)
+            await GuessLetterAsync(button);
     }
 
     private async void ReplayButton_Clicked(object? sender, EventArgs e)
@@ -248,6 +286,7 @@ public partial class MainPage : ContentPage
         }
 
         guessedButtons.Clear();
+        KeyboardInput.Focus();
     }
 
     protected override void OnDisappearing()

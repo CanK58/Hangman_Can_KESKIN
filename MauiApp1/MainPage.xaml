@@ -10,6 +10,16 @@
                  VerticalOptions="Start"
                  Margin="0,8,0,0" />
 
+        <Entry x:Name="KeyboardInput"
+               AutomationId="KeyboardInput"
+               WidthRequest="1"
+               HeightRequest="1"
+               Opacity="0"
+               MaxLength="1"
+               ReturnType="Done"
+               TextChanged="KeyboardInput_TextChanged"
+               Loaded="KeyboardInput_Loaded" />
+
         <ScrollView>
             <VerticalStackLayout Padding="20,24" Spacing="18">
                 <Grid ColumnDefinitions="*,Auto">
