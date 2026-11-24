@@ -11,6 +11,7 @@ public partial class MainPage : ContentPage
     ];
 
     private readonly Dictionary<string, IAudioPlayer> soundPlayers = [];
+    private IAudioPlayer? backgroundMusicPlayer;
     private readonly List<Button> guessedButtons = [];
     private readonly HashSet<char> correctGuesses = [];
     private Label[] letterLabels = [];
@@ -29,6 +30,27 @@ public partial class MainPage : ContentPage
         tires = [Tire1, Tire2, Tire3, Tire4, Tire5];
         tireFires = [TireFire1, TireFire2, TireFire3, TireFire4, TireFire5];
         tireSmoke = [TireSmoke1, TireSmoke2, TireSmoke3, TireSmoke4, TireSmoke5];
+    }
+
+    private async void Page_Loaded(object? sender, EventArgs e)
+    {
+        await StartBackgroundMusicAsync();
+    }
+
+    private async Task StartBackgroundMusicAsync()
+    {
+        if (backgroundMusicPlayer is not null)
+        {
+            if (!backgroundMusicPlayer.IsPlaying)
+                backgroundMusicPlayer.Play();
+            return;
+        }
+
+        Stream audioStream = await FileSystem.OpenAppPackageFileAsync("background_music.wav");
+        backgroundMusicPlayer = AudioManager.Current.CreatePlayer(audioStream);
+        backgroundMusicPlayer.Volume = 0.18;
+        backgroundMusicPlayer.Loop = true;
+        backgroundMusicPlayer.Play();
     }
 
     private async void Button_Clicked(object? sender, EventArgs e)
@@ -291,6 +313,10 @@ public partial class MainPage : ContentPage
 
     protected override void OnDisappearing()
     {
+        backgroundMusicPlayer?.Stop();
+        backgroundMusicPlayer?.Dispose();
+        backgroundMusicPlayer = null;
+
         foreach (IAudioPlayer player in soundPlayers.Values)
             player.Dispose();
 
